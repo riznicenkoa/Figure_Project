@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <img src="https://lh3.googleusercontent.com/proxy/CSjLsGn136p69X5WP2Sj7bsUpLQ9GybY9vClIozk0ATNOaMrfSP0CPoky2w4Sz8ZTMonDQNWq529CsbHcFBxmEkm1fYorr4" alt="">
+        <h1>Периметр</h1>
+        <input id="width" type="text" size="40" placeholder="input a">
+        <input id="length" type="text" size="40" placeholder="input b">
+        <button id='rectangle_calculate'>Calculate</button>
+        <h3 id="answer_rectangle"></h3>
+        
+
+        <script>
+            class Figure {
+                constructor(length){
+                    this.length = length;
+                }
+
+                getPerimeter() {
+                    alert('Calculating perimeter...');
+                }
+
+                getSquare() {
+                    alert('Calculating square...');
+                }
+            }
+
+            class Rectangle extends Figure {
+                constructor(length, width) {
+                    super(length);
+                    this.width = width;
+                }
+
+                getPerimeter() {
+                    super.getPerimeter();
+                    return (this.length + this.width) * 2;
+                }
+            }
+
+            $("#rectangle_calculate").click(function() {
+                let myWidth = Number($("#width").val());
+                let myLength = Number($("#length").val());
+                let rectangle = new Rectangle(myLength, myWidth);
+                let perimeter = rectangle.getPerimeter();
+                $("#answer_rectangle").text(`Perimeter = ${perimeter}`);
+            })
+        </script>
+    </body>
+</html>
